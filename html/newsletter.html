@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlapping Circles</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .nwltr{
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container-1 {
+            width: 304px;
+            height: 404px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-bottom: 20px;
+            margin-top: 599px;
+            /* left: 25%; */
+        }
+
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img1,
+        .img2 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+        .red {
+            background-color: red;
+            top: -49px;
+            left: 46px;
+            z-index: 5;
+            transform: scale(1.2);
+            opacity: 0.8;
+        }
+
+        .blue {
+            background-color: blue;
+            top: 31px;
+            left: 180px;
+            transform: scale(1.5);
+        }
+
+        .green {
+            background-color: green;
+            top: 109px;
+            left: -25px;
+            transform: scale(1.5);
+        }
+
+        .grey {
+            background-color: aqua;
+            top: 204px;
+            left: 139px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            transform: scale(1.6);
+        }
+
+        .grey h1,
+        .grey p,
+        .red p {
+            margin: 0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            /* Center text */
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #C8102E;
+            font-size: 2em;
+        }
+
+        .header h2 {
+            color: #333333;
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .header p {
+            color: #666666;
+            font-size: 1em;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .section {
+            width: 300px;
+            text-align: center;
+        }
+
+        .house-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .button {
+            text-decoration: none;
+            background-color: #6c63ff;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #5a4fcf;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #dddddd;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            color: #333333;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="nwltr">
+        <div class="container-1">
+            <div class="circle red">
+                <p>Get Tickets Today!</p>
+            </div>
+            <div class="circle blue"><img class="img1" src="newdelhi.jpg"></div>
+            <div class="circle green"><img class="img2" src="manali.jpg"></div>
+            <div class="circle grey">
+                <h1>AMAZING!</h1>
+                <p>Bring Your Dream Travel to Reality</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <header class="header">
+                <h1>Mary and Lee's Real Estate Agency</h1>
+                <h2>A Dream Home Is Within Reach. Here's Our Latest Update On Your Potential Dream Houses</h2>
+                <p>Delivering newsletters through email is one of the best ways to build a strong relationship with your
+                    members and customers.</p>
+            </header>
+
+            <div class="content">
+                <div class="section">
+                    <img id="dynamicImage1" src="h1.jpg" alt="Modern House" class="house-image">
+                    <h3>Modern House For Sale</h3>
+                    <p>Explore this beautiful modern house that could be your next home.</p>
+                    <a href="#" class="button">Visit Web</a>
+                </div>
+
+                <div class="section">
+                    <img id="dynamicImage2" src="h2.jpg" alt="New Blog About Housing" class="house-image">
+                    <h3>New Blog About Housing</h3>
+                    <p>Stay updated with the latest trends and insights in the housing market.</p>
+                    <a href="#" class="button">See Blog</a>
+                </div>
+            </div>
+
+            <footer class="footer">
+                <p>Our Contact</p>
+                <p>Phone: 123-456-7890</p>
+                <p>Email: hello@realestate.com</p>
+            </footer>
+        </div>
+    </section>
+
+    <script>
+        const images = [
+            ['h1.jpg', 'h2.jpg'], // Initial images
+            ['h3.jpg', 'h4.jpg'], // Second set of images
+            ['h5.jpg', 'h6.jpg']  // Third set of images
+        ];
+
+        let currentIndex = 0;
+
+        function changeImages() {
+            const imgElement1 = document.getElementById('dynamicImage1');
+            const imgElement2 = document.getElementById('dynamicImage2');
+            currentIndex = (currentIndex + 1) % images.length;
+            imgElement1.src = images[currentIndex][0];
+            imgElement2.src = images[currentIndex][1];
+        }
+
+        setInterval(changeImages, 2000); // Change images every 2 seconds
+    </script>
+</body>
+
+</html>

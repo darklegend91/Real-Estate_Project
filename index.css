@@ -4,21 +4,19 @@
   box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-}
 body,
 html {
   scroll-behavior: smooth;
   transition: html 6s linear;
+  overflow-x: hidden;
+  width: 100vw;
+}
+a {
+  text-decoration: none;
 }
 .hero {
   width: 100%;
   height: 100vh;
-  /* background-color: rgb(219, 236, 255); */
-  /* background-image: url(./all_pics_contents/hero-back-3.jpg);
-  background-size: cover;
-  background-position: right right; */
   position: relative;
   font-size: 22px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -211,115 +209,7 @@ html {
   background-size: cover;
 }
 
-/* categories section 😊 
-.categories {
-  width: 100%;
-  height: 100vh;
-  background-image: url("./all_pics_contents/opening-cates.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-.cates-box {
-  width: 100%;
-  height: 40%;
-  position: relative;
-  top: 30%;
-  background-color: azure;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  padding: 80px 10px;
-}
-.cates-box .details {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.cates-box .details h1 {
-  font-size: 70px;
-  width: 60%;
-  font-weight: lighter;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-}
-.cates-box .imgs {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  width: 70%;
-  margin-left: 150px;
-}
-.details a {
-  transition: animation 0.3s;
-}
-.details a {
-  transform: rotate(90deg);
-}
-.details a svg {
-  animation: floaty 2s linear infinite;
-}
 
-@keyframes floaty {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(10%);
-  }
-  50% {
-    transform: translateX(0);
-  }
-  75% {
-    transform: translateX(-10%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-.imgs a .img-1 {
-  animation: floatyImg1 2s linear infinite;
-}
-.imgs a .img-2 {
-  animation: floatyImg2 3s linear infinite;
-}
-
-@keyframes floatyImg1 {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translatey(5%);
-  }
-  50% {
-    transform: translateY(0);
-  }
-  75% {
-    transform: translateY(-5%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes floatyImg2 {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translatey(5%);
-  }
-  50% {
-    transform: translateY(0);
-  }
-  75% {
-    transform: translateY(-5%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-*/
 .underground {
   display: flex;
   width: 100%;
@@ -331,13 +221,10 @@ html {
 .underground .under {
   display: flex;
   width: 60%;
-
-  /* justify-content: space-between; */
   position: relative;
 }
 .under h1 {
   font-size: 70px;
-  /* width: 100%; */
   font-weight: lighter;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   position: absolute;
@@ -345,24 +232,12 @@ html {
   left: 3%;
   color: white;
 }
-/* .under .underP {
-  font-size: 50px;
-  display: inline-block;
-  position: absolute;
-  bottom: 10;
-  right: 10;
-  font-weight: bolder;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  position: absolute;
-} */
 
 /* SMALL CONTENT SECTION */
 .small-content {
   margin-top: 50px;
   width: 100%;
   height: 100%;
-  /* background-color: purple; */
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -375,7 +250,6 @@ html {
   align-items: center;
   text-align: center;
   width: 40%;
-  /* color: ; */
 }
 .content-imgs h1 {
   font-weight: 800;
@@ -387,7 +261,6 @@ html {
   margin-top: 50px;
   width: 100%;
   height: 100vh;
-  /* background-color: blueviolet; */
 }
 .hovering-cates .cates,
 .cates a {
@@ -401,13 +274,9 @@ html {
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  /* visibility: hidden; */
-  /* opacity: 0; */
   transition: all linear 0.9s;
-  /* background-color: black; */
   gap: 1rem;
   cursor: pointer;
-  /* border-bottom: solid gray 0.4px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -511,21 +380,12 @@ html {
 
 .water_box {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 1rem;
-  box-sizing: border-box;
-  /* border: 30px; */
-  padding: 40px 1px;
-  /* background-color: black; */
-  /* background:linear-gradient(to bottom,rgb(99, 99, 99),rgb(29, 29, 29)); */
-  width: 100%;
-  /* height: 250px; */
-  /* height: 300px; */
-  /* margin-top: 50px; */
-  /* border-radius: 100px; */
-  /* background-color: /; */
-  color: black;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: repeat(2,1fr);
+  gap :1rem;
+  border: 30px;
+  padding: 40px 22px;
+color:#000000
 }
 
 .water1,
@@ -533,21 +393,10 @@ html {
 .water3,
 .water4 {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
-  /* text-align: center; */
-  /* flex-wrap: wrap ; */
-  /* width: calc(50% - 1rem); */
-  /* flex-direction: column; */
-  /* width: 80%;
-  height: auto; */
   gap: 2rem;
-  /* background-color: rgb(0, 0, 0);
-   */
-  background-color: #eadaad;
 
   padding: 20px 17px;
-  /* border: solid purple 5px; */
   border-radius: 13px;
 }
 .water {
@@ -560,15 +409,13 @@ html {
 
   border-radius: 27px;
 }
-/* .water .CH{
-  width: 300px;
-} */
 
 .water strong {
   font-size: 22px;
 }
 .water p {
   font-size: 18px;
+  
 }
 
 .water2 .Mumbai_Flat {
@@ -576,7 +423,6 @@ html {
 }
 .places_headings {
   background-color: white;
-  /* color: white; */
   text-align: center;
   display: flex;
   align-items: center;
@@ -587,8 +433,7 @@ html {
 /* footer */
 footer {
   width: 100%;
-  background-color: #151515;
-  color: #c29671;
+  color:#000000;
   font-family: "Handlee";
   box-sizing: border-box;
 }
@@ -602,7 +447,6 @@ footer {
   height: 20vh;
   position: relative;
   font-family: "Handlee";
-  color: aliceblue;
 }
 
 #ch-head {
@@ -650,13 +494,12 @@ footer {
 #d-text {
   width: 60%;
   height: 100%;
-  color: aliceblue;
 }
 
 #form-container {
   width: 55%;
   height: 100%;
-  background-color: beige;
+  /* background-color: beige; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -709,7 +552,7 @@ footer {
   border: none;
   border-radius: 5px;
   background-color: #1c1c1c;
-  color: #e0e0e0;
+  color: #fff7f7;
   font-size: 14px;
   box-sizing: border-box;
   width: 100%;
@@ -761,7 +604,6 @@ footer {
 #copyright {
   width: 100%;
   height: 10vh;
-  color: aliceblue;
 }
 
 #stat {

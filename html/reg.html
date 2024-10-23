@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration Page</title>
+    <style>
+        /* Import Google Fonts for a more stylish look */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f9f6f1;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        #reg, #login {
+            background-color: #fff;
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background-color: #000;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #333;
+        }
+        a {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <fieldset id="reg">
+        <section id="register">
+            <h2>Register</h2>
+            <input type="text" name="name" id="name" placeholder="Enter name" required /> <br /><br />
+            <input type="text" name="userid" id="userid" placeholder="Enter Username" required /> <br /><br />
+            <input type="password" name="password" id="password" placeholder="Enter Password" required /> <br /><br />
+            <input type="password" name="re_password" id="re_password" placeholder="Re-enter Password" required /><br /><br />
+            <input type="email" name="email" id="email" placeholder="Enter Email" required /> <br /><br />
+            <input type="file" name="image" id="image" accept="image/*" /><br /><br />
+            <button type="button" onclick="register()">Register</button>
+        </section>
+    </fieldset>
+
+    <script>
+        function register() {
+            let userid = document.getElementById("userid").value;
+            let password = document.getElementById("password").value;
+            let repassword = document.getElementById("re_password").value;
+            let email = document.getElementById("email").value;
+            let name = document.getElementById("name").value;
+            let imageInput = document.getElementById("image");
+
+            // Check if passwords match
+            if (password === repassword) {
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+
+                // Check if the username already exists
+                let userExists = users.some((user) => user.userid === userid);
+                if (userExists) {
+                    alert("User already exists. Please choose another username.");
+                } else {
+                    let reader = new FileReader();
+
+                    // Read the selected image as a Data URL (Base64)
+                    reader.onloadend = function() {
+                        let imageBase64 = reader.result; // Get Base64 string
+                        
+                        // Add the new user to the users array
+                        users.push({ userid, password, email, name, image: imageBase64 });
+                        localStorage.setItem("users", JSON.stringify(users));
+                        
+                        // Log user details to the console
+                        console.log("User registered:", { userid, password });
+
+                        alert("Registration successful.");
+                        
+                        // Redirect to the login page
+                        window.location.href = "login.html";
+                    };
+
+                    // If image is selected, convert it to Base64
+                    if (imageInput.files.length > 0) {
+                        reader.readAsDataURL(imageInput.files[0]);
+                    } else {
+                        // If no image is selected, proceed without image
+                        users.push({ userid, password, email, name, image: null });
+                        localStorage.setItem("users", JSON.stringify(users));
+                        
+                        // Log user details to the console
+                        console.log("User registered:", { userid, password });
+
+                        alert("Registration successful without image.");
+                        
+                        // Redirect to the login page
+                        window.location.href = "login.html";
+                    }
+                }
+            } else {
+                alert("Passwords do not match.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -2,14 +2,16 @@
 <html lang="en">
 
 <head>
-    <title>Document</title>
+    <title>Luxin-Your One spot for house</title>
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <section class="hero">
         <nav class="nav-bar">
-            <div class="logo">  <a href="">LUCID</a> </div>
+            <div class="logo">
+                <a href="">LUXIN</a>
+            </div>
             <div class="list">
                 <ul>
                     <a href="./index.html">
@@ -23,13 +25,14 @@
                     </a>
                 </ul>
             </div>
-            <div class="login-button">
-                <a href="./nlogin.html">
+            <div class="login-button" id="login-profile-button">
+                <!-- This button will be dynamically changed using JavaScript -->
+                <a href="./html/login.html">
                     <button>Login</button>
-
                 </a>
             </div>
         </nav>
+               
 
         <div class="hero-content">
             <div class="left-content">
@@ -93,30 +96,6 @@
     </section>
 
 
-    <!-- <section class="categories">
-        <div class="cates-box">
-            <div class="details">
-                <h1>Let's Go To Categories</h1>
-                <a href="#categories">
-
-                    <svg width="80" height="80" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M10.1655 9.56689L3.5249 16.2075C3.06592 16.6665 2.32373 16.6665 1.86963 16.2075L0.766113 15.104C0.307129 14.645 0.307129 13.9028 0.766113 13.4487L5.47314 8.7417L0.766113 4.03467C0.307129 3.57568 0.307129 2.8335 0.766113 2.37939L1.86475 1.26611C2.32373 0.807129 3.06592 0.807129 3.52002 1.26611L10.1606 7.90674C10.6245 8.36572 10.6245 9.10791 10.1655 9.56689ZM19.5405 7.90674L12.8999 1.26611C12.4409 0.807129 11.6987 0.807129 11.2446 1.26611L10.1411 2.36963C9.68213 2.82861 9.68213 3.5708 10.1411 4.0249L14.8481 8.73193L10.1411 13.439C9.68213 13.8979 9.68213 14.6401 10.1411 15.0942L11.2446 16.1978C11.7036 16.6567 12.4458 16.6567 12.8999 16.1978L19.5405 9.55713C19.9995 9.10791 19.9995 8.36572 19.5405 7.90674Z"
-                            fill="black" />
-                    </svg>
-                </a>
-
-            </div>
-            <div class="imgs">
-                <a href="#categories">
-                    <img loading="lazy" class="img-1" src="./all_pics_contents/room-1.jpg" alt="room1" width="200px">
-                    <img loading="lazy" class="img-2" src="./all_pics_contents/room-stairs.jpg" alt="room2"
-                        width="200px">
-                </a>
-            </div>
-        </div>
-    </section> -->
-
     <section class="underground">
         <div class="under">
             <h1>Your journey to owning the perfect property begins with us—explore, select, settle.</h1>
@@ -124,63 +103,6 @@
     </section>
 
     <hr>
-    <section class="small-content">
-        <div class="content-imgs">
-            <h1>
-                Find your next <img src="./all_pics_contents/content-img-1.jpg" width="100px" alt="homi"> property
-                luxury houses, <img src="./all_pics_contents/content-img-2.jpg" width="100px" alt="condi"> stylish
-                condos, <img src="./all_pics_contents/content-img-3.jpg" width="100px" alt="passion "> and commercial
-                spaces,<img src="./all_pics_contents/content-img-4.jpg" width="100px" alt="estaty"> tailored to your
-                <img src="./all_pics_contents/content-img-6.jpg" width="100px" alt="">
-                unique vision.
-
-            </h1>
-        </div>
-    </section>
-    <!-- <hr> -->
-
-    <section class="hovering-cates" id="categories">
-        <div class="cates">
-            <hr>
-            <a href="">
-
-                <div class="cate-1 cate">
-                    <p>2024</p>
-                    <div class="cate-head">Sea Side</div>
-                    <div class="more">Read More</div>
-                </div>
-            </a>
-            <hr>
-            <a href="">
-
-                <div class="cate-2 cate">
-                    <p>2024</p>
-                    <div class="cate-head">Sea Side</div>
-                    <div class="more">Read More</div>
-                </div>
-            </a>
-            <hr>
-            <a href="">
-
-                <div class="cate-3 cate">
-                    <p>2024</p>
-                    <div class="cate-head">Sea Side</div>
-                    <div class="more">Read More</div>
-                </div>
-            </a>
-            <hr>
-            <a href="">
-
-                <div class="cate-4 cate">
-                    <p>2024</p>
-                    <div class="cate-head">Sea Side</div>
-                    <div class="more">Read More</div>
-                </div>
-            </a>
-            <hr>
-        </div>
-    </section>
-
 
     <section class="down">
         <div class="stickyFlex">
@@ -188,59 +110,48 @@
                 <h1>Categories</h1>
             </div>
 
-            <div class="sticky1 floaty_img">
-                <div class="stickyLeftText sticky-text ">
-                    <!-- Category_1 -->
-                    <h2>Leese</h2>
+            <section class="hovering-cates" id="categories">
+                <div class="cates">
+                    <hr>
+                    <a href="">
+        
+                        <div class="cate-1 cate">
+                            <p>2024</p>
+                            <div class="cate-head">Leese</div>
+                            <div class="more">Read More</div>
+                        </div>
+                    </a>
+                    <hr>
+                    <a href="">
+        
+                        <div class="cate-2 cate">
+                            <p>2024</p>
+                            <div class="cate-head">Sell</div>
+                            <!-- <div class="more">Read More</div> -->
+                        </div>
+                    </a>
+                    <hr>
+                    <a href="">
+        
+                        <div class="cate-3 cate">
+                            <p>2024</p>
+                            <div class="cate-head">Buy</div>
+                            <!-- <div class="more">Read More</div> -->
+                        </div>
+                    </a>
+                    <hr>
+                    <a href="">
+        
+                        <div class="cate-4 cate">
+                            <p>2024</p>
+                            <div class="cate-head">Rent</div>
+                            <!-- <div class="more">Read More</div> -->
+                        </div>
+                    </a>
+                    <hr>
                 </div>
-
-                <div class="stickyImage">
-                    <img src="Images/Office_sticky.jpg" width="600px" class="sticky_image1" alt="">
-                </div>
-                <div class="stickyRightText1 sticky-text">
-
-                    <p> "Transforming ideas into reality begins with creating a functional workspace. Our office design
-                        focuses on efficiency and innovation, integrating modern amenities with ergonomic solutions to
-                        foster productivity."</p>
-                </div>
-            </div>
-            <hr>
-            <div class="sticky2 floaty_img">
-                <div class="stickyLeftText sticky-text">
-                    Category_2
-                    <h2>Sell</h2>
-                </div>
-
-                <div class="stickyImage">
-                    <img src="Images/land_area.jpg" width="600px" class="sticky_image2" alt="">
-                </div>
-                <div class="stickyRightText2 sticky-text">
-
-                    <p>"Securing the perfect location is crucial for any development project. We carefully assess land
-                        options to find the ideal site that meets your needs. "</p>
-                    </div>
-                </div>
-                
-                <hr>
-                <div class="sticky3 floaty_img">
-                    <div class="stickyLeftText sticky-text ">
-                    Category_3
-                    <h2>Rent</h2>
-                </div>
-
-                <div class="stickyImage">
-                    <img src="Images/construction_sticky.jpg" width="600px" class="sticky_image3" alt="">
-                </div>
-                <div class="stickyRightText3 sticky-text">
-
-                    <p> "Bringing your vision to life involves meticulous planning and execution. Our construction phase
-                        encompasses all aspects, from groundbreaking to finishing touches. We prioritize quality,
-                        safety."</p>
-                </div>
-            </div>
-
-        </div>
-        <hr>
+            </section>
+        </section>    
 
 
         <div class="places_headings " id="places">
@@ -270,6 +181,7 @@
                     <p><strong>Delhi</strong> <br> <br> A blend of rich history, political power, and cultural
                         diversity.</p>
                 </div>
+
                 <div class="water3 water">
 
                     <p><strong>Banglore</strong> <br> <br>India's tech hub, known for its startups and green spaces.</p>
@@ -280,10 +192,12 @@
                 </div>
                 <div class="water4 water">
 
+
                     <a href="#Chandigarh">
 
                         <img class="CH" src="Images/Chandigarh_area.jpg" width="300px" alt="">
                     </a>
+                    <hr>
                     <p><strong>Chandigarh</strong> <br> <br>A well-planned city, famous for its architecture and
                         cleanliness.!</p>
                 </div>
@@ -303,14 +217,14 @@
                     <p><strong>Office</strong> <br><br>"Modern office space with efficient layout, ergonomic furniture,
                         and collaborative zones."
                     </p>
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
                         <img src="Images/office_mumbai.jpg" width="300px" alt="">
                     </a>
                 </div>
 
                 <div class="water2 water">
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
                         <img src="Images/flat_mumbai.jpg" class="Mumbai_Flat" width="300px" alt="">
                     </a>
@@ -322,14 +236,14 @@
 
                     <p><strong>House Loan</strong> <br> <br> "Flexible house loan options with competitive rates and
                         tailored repayment plans."</p>
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
 
                         <img src="Images/house_loan.jpg" width="300px" alt="">
                     </a>
                 </div>
                 <div class="water4 water">
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
                         <img class="CH" src="Images/coastline_house_mumbai.jpg" width="300px" alt="">
                     </a>
@@ -351,14 +265,14 @@
                     <p><strong>Office</strong> <br><br>"Modern office space with efficient layout, ergonomic furniture,
                         and collaborative zones."
                     </p>
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
                         <img src="Images/Delhi_office.jpg" width="300px" alt="">
                     </a>
                 </div>
 
                 <div class="water2 water">
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
                         <img src="Images/Delhi_flat.jpg" class="Mumbai_Flat" width="300px" alt="">
                     </a>
@@ -370,14 +284,14 @@
 
                     <p><strong>House Loan</strong> <br> <br> "Flexible house loan options with competitive rates and
                         tailored repayment plans."</p>
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
 
                         <img src="Images/Delhi_loan.jpg" width="300px" alt="">
                     </a>
                 </div>
                 <div class="water4 water">
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
                         <img class="CH" src="Images/Delhi_coastal.jpg" width="300px" alt="">
                     </a>
@@ -400,14 +314,14 @@
                     <p><strong>Office</strong> <br><br>"Modern office space with efficient layout, ergonomic furniture,
                         and collaborative zones."
                     </p>
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
                         <img src="Images/Banglore_officec.jpg" width="300px" alt="">
                     </a>
                 </div>
 
                 <div class="water2 water">
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
                         <img src="Images/Banglore_flat.jpg" class="Mumbai_Flat" width="300px" alt="">
                     </a>
@@ -419,14 +333,14 @@
 
                     <p><strong>House Loan</strong> <br> <br> "Flexible house loan options with competitive rates and
                         tailored repayment plans."</p>
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
 
                         <img src="Images/Banglore_loan.jpg" width="300px" alt="">
                     </a>
                 </div>
                 <div class="water4 water">
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
                         <img class="CH" src="Images/Banglore_coastal.jpg" width="300px" alt="">
                     </a>
@@ -449,14 +363,14 @@
                     <p><strong>Office</strong> <br><br>"Modern office space with efficient layout, ergonomic furniture,
                         and collaborative zones."
                     </p>
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
                         <img src="Images/Chandigarh_office.jpg" width="300px" alt="">
                     </a>
                 </div>
 
                 <div class="water2 water">
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
                         <img src="Images/Chandigarh_falt.jpg" class="Mumbai_Flat" width="300px" alt="">
                     </a>
@@ -468,14 +382,14 @@
 
                     <p><strong>House Loan</strong> <br> <br> "Flexible house loan options with competitive rates and
                         tailored repayment plans."</p>
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
 
                         <img src="Images/Chandigarh_loan.jpg" width="300px" alt="">
                     </a>
                 </div>
                 <div class="water4 water">
-                    <a href="products-desc.html">
+                    <a href="html/products-desc.html">
 
                         <img class="CH" src="Images/Chandigarh_coastal.jpg" width="300px" alt="">
                     </a>
@@ -492,7 +406,7 @@
 
     <footer id="contact">
         <section id="contact-heading">
-            <div id="ch-head">Don't be shy <span style="color:#c29671">, say hi!</span></div>
+            <div id="ch-head">Don't be shy <span style="font-weight: 500;">, say hi!</span></div>
             <div id="ch-text">
                 WE'D LOVE TO HEAR FROM YOU! SEND US YOUR REQUESTS OR GIVE US A CALL TO DISCUSS YOUR NEXT PROJECT.
             </div>
@@ -509,7 +423,7 @@
                             <defs>
                                 <style>
                                     #comp-lz361wmj3 svg [data-color="1"] {
-                                        fill: #C29671;
+                                        fill: #000000;
                                     }
                                 </style>
                             </defs>
@@ -522,7 +436,7 @@
                     </div>
                     <div id="d-text">
                         <p id="d-t-head">Email</p>
-                        <p>Send us at <br> <span style="color:#C29671">real-estate@gmail.com</span></p>
+                        <p>Send us at <br> <span style="font-weight: 500;">real-estate@gmail.com</span></p>
                     </div>
                 </div>
                 <div id="d-card">
@@ -547,7 +461,7 @@
                     </div>
                     <div id="d-text">
                         <p id="d-t-head">Phone</p>
-                        <p>Give us at a call at <br> <span style="color:#C29671">987654321</span></p>
+                        <p>Give us at a call at <br> <span style="font-weight: 500;">987654321</span></p>
                     </div>
                 </div>
                 <div id="d-card">
@@ -559,7 +473,7 @@
                             <defs>
                                 <style>
                                     #comp-lz7nf76b5 svg [data-color="1"] {
-                                        fill: #C29671;
+                                        fill: #000000;
                                     }
                                 </style>
                             </defs>
@@ -572,7 +486,7 @@
                     </div>
                     <div id="d-text">
                         <p id="d-t-head">Address</p>
-                        <p>Meet us at a call at <br> <span style="color:#C29671">Flat 45 Delhi</span></p>
+                        <p>Meet us at a call at <br> <span style="font-weight: 500;">Flat 45 Delhi</span></p>
                     </div>
                 </div>
             </div>
@@ -639,6 +553,34 @@
         </section>
     </footer>
     </section>
+
+    <script>
+        function updateLoginProfileButton() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const loginProfileButtonDiv = document.getElementById('login-profile-button');
+    
+            if (isLoggedIn === 'true') {
+                // User is logged in, show the profile button instead of login
+                loginProfileButtonDiv.innerHTML = `
+                    <a href="html/profile.html">
+                        <button>Profile</button>
+                    </a>
+                `;
+            } else {
+                // User is not logged in, show the login button
+                loginProfileButtonDiv.innerHTML = `
+                    <a href="html/login.html">
+                        <button>Login</button>
+                    </a>
+                `;
+            }
+        }
+    
+        // Call the function when the page loads
+        document.addEventListener('DOMContentLoaded', updateLoginProfileButton);
+    </script>
+
+
 </body>
 
 </html>
