@@ -461,11 +461,25 @@
 
       if (isLoggedIn) {
           // User is logged in, show the Profile button
-          authButton.innerHTML = `<a href="../profile.html"><button>Profile</button></a>`;
+          authButton.innerHTML = `<a href="profile.html"><button>Profile</button></a>`;
       } else {
           // User is not logged in, show the Login button
-          authButton.innerHTML = `<a href="../nlogin.html"><button>Login</button></a>`;
+          authButton.innerHTML = `<a href="login.html"><button>Login</button></a>`;
       }
+  }
+  function img1() {
+    let imageElement = document.getElementById("img-2");
+    imageElement.src = "../assets/bedroom.jpg";
+  }
+
+  function img2() {
+    let imageElement = document.getElementById("img-2");
+    imageElement.src = "../assets/workspace.jpg";
+  }
+
+  function img3() {
+    let imageElement = document.getElementById("img-2");
+    imageElement.src = "../assets/kitchen.jpg";
   }
 
   // Call the function to check login status when the page loads

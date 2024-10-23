@@ -4,92 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .profile-container {
+            width: 400px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-card {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .profile-details {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .edit-icon {
+            cursor: pointer;
+            color: blue;
+        }
+
+        .edit-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #edit-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
-
-    .profile-container {
-        width: 400px;
-        background-color: white;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .profile-card {
-        text-align: center;
-    }
-
-    .profile-image {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 10px;
-    }
-
-    h2 {
-        font-size: 24px;
-        margin-bottom: 5px;
-    }
-
-    .profile-details {
-        text-align: left;
-        margin-top: 20px;
-    }
-
-    .detail-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    .edit-icon {
-        cursor: pointer;
-        color: blue;
-    }
-
-    .edit-popup {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        border: 1px solid #ddd;
-        padding: 20px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    #edit-input {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-    }
-
-    button {
-        padding: 8px 12px;
-        margin: 5px;
-        cursor: pointer;
-    }
-</style>
 <body>
     <div class="profile-container">
         <div class="profile-card">
             <img id="profile-image" class="profile-image" src="" alt="Profile Picture">
             <h2 id="fullName">Name</h2>
-            <p id="username">@username <span class="edit-icon" onclick="editField('name')">✏</span></p>
+            <p id="username">@username</p>
             <div class="profile-details">
                 <div class="detail-item">
                     <strong>Username</strong>
@@ -102,6 +101,7 @@
                     <span class="edit-icon" onclick="editField('email')">✏</span>
                 </div>
             </div>
+            <button onclick="logout()">Logout</button>
         </div>
     </div>
 
@@ -116,73 +116,71 @@
         let currentField = '';
 
         function loadProfile() {
-            // Simulate getting the logged-in user ID (e.g., from a login process)
-            const loggedInUser = localStorage.getItem('loggedInUser');
+            const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
             if (!loggedInUser) {
                 alert("No user is logged in.");
-                window.location.href = "login.html"; // Redirect to login page
-                return;
-            }
-
-            // Retrieve user data from local storage
-            const users = JSON.parse(localStorage.getItem('users')) || [];
-            const userData = users.find(user => user.userid === loggedInUser);
-
-            if (!userData) {
-                alert("User data not found.");
                 window.location.href = "login.html";
                 return;
             }
 
-            // Extract user data or set default values
-            const fullName = userData.name || 'User Name';
-            const email = userData.email || 'user@example.com';
-            const profileImage = userData.image || 'https://via.placeholder.com/100';
+            // Set profile data
+            const fullName = loggedInUser.name || 'User Name';
+            const email = loggedInUser.email || 'user@example.com';
+            const profileImage = loggedInUser.image || 'https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg';
 
-            // Update profile details with retrieved data
             document.getElementById('fullName').textContent = fullName;
-            document.getElementById('username').textContent = `@${fullName}`;
-            document.getElementById('display-name').textContent = fullName;
+            document.getElementById('username').textContent = `@${loggedInUser.userid}`;
+            document.getElementById('display-name').textContent = fullName; // Show full name as display name
             document.getElementById('display-email').textContent = email;
             document.getElementById('profile-image').src = profileImage;
         }
 
         function editField(field) {
             currentField = field;
-            const fieldValue = document.getElementById(`display-${field}`).textContent;
-            document.getElementById('edit-input').value = fieldValue;
-            document.getElementById('edit-popup').style.display = 'block';
+            const editPopup = document.getElementById('edit-popup');
+            const inputField = document.getElementById('edit-input');
+
+            if (field === 'name') {
+                inputField.value = document.getElementById('fullName').textContent;
+            } else if (field === 'email') {
+                inputField.value = document.getElementById('display-email').textContent;
+            }
+
+            editPopup.style.display = 'block';
         }
 
         function saveEdit() {
-            const newValue = document.getElementById('edit-input').value;
-            document.getElementById(`display-${currentField}`).textContent = newValue;
-
-            // Update local storage with the new value
-            const loggedInUser = localStorage.getItem('loggedInUser');
-            const users = JSON.parse(localStorage.getItem('users')) || [];
-            const userIndex = users.findIndex(user => user.userid === loggedInUser);
-
-            if (userIndex !== -1) {
-                if (currentField === 'name') {
-                    users[userIndex].name = newValue;
-                } else if (currentField === 'email') {
-                    users[userIndex].email = newValue;
-                }
-
-                // Save the updated users array back to local storage
-                localStorage.setItem('users', JSON.stringify(users));
+            const newValue = document.getElementById('edit-input').value.trim();
+            if (!newValue) {
+                alert('Value cannot be empty');
+                return;
             }
 
-            document.getElementById('edit-popup').style.display = 'none';
+            const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
+            if (loggedInUser) {
+                if (currentField === 'name') {
+                    loggedInUser.name = newValue;
+                } else if (currentField === 'email') {
+                    loggedInUser.email = newValue;
+                }
+
+                localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+                closePopup();
+                loadProfile();
+            }
         }
 
         function closePopup() {
             document.getElementById('edit-popup').style.display = 'none';
         }
 
-        // Load profile information when the page loads
+        function logout() {
+            localStorage.removeItem('loggedInUser'); 
+            window.location.href = "index.html";
+        }
+
         window.onload = loadProfile;
     </script>
 </body>

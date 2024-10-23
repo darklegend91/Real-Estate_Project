@@ -4,19 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overlapping Circles</title>
+    <title>Newsletter</title>
     <style>
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
             background-color: #f0f0f0;
             margin: 0;
         }
-        .nwltr{
 
+        .nwltr {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -31,8 +30,7 @@
             align-items: center;
             position: relative;
             margin-bottom: 20px;
-            margin-top: 599px;
-            /* left: 25%; */
+            margin-top: 100px;
         }
 
         .circle {
@@ -45,8 +43,7 @@
             align-items: center;
         }
 
-        .img1,
-        .img2 {
+        .img1, .img2 {
             width: 150px;
             height: 150px;
             border-radius: 50%;
@@ -88,12 +85,6 @@
             transform: scale(1.6);
         }
 
-        .grey h1,
-        .grey p,
-        .red p {
-            margin: 0;
-        }
-
         .container {
             width: 80%;
             max-width: 800px;
@@ -102,11 +93,6 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
             padding: 20px;
             text-align: center;
-            /* Center text */
-        }
-
-        .header {
-            margin-bottom: 40px;
         }
 
         .header h1 {
@@ -130,6 +116,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 20px;
+            margin-bottom: 40px;
         }
 
         .section {
@@ -170,6 +157,48 @@
             color: #333333;
             margin: 5px 0;
         }
+
+        .news-container {
+            width: 80%;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            margin: auto;
+        }
+
+        #news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .news-item {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .news-item h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .news-item p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .news-item a {
+            color: #6c63ff;
+            text-decoration: none;
+        }
+
+        .news-item a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -189,10 +218,9 @@
 
         <div class="container">
             <header class="header">
-                <h1>Mary and Lee's Real Estate Agency</h1>
+                <h1>LUXIN Real Estate Agency</h1>
                 <h2>A Dream Home Is Within Reach. Here's Our Latest Update On Your Potential Dream Houses</h2>
-                <p>Delivering newsletters through email is one of the best ways to build a strong relationship with your
-                    members and customers.</p>
+                <p>Delivering newsletters through email is one of the best ways to build a strong relationship with your members and customers.</p>
             </header>
 
             <div class="content">
@@ -200,14 +228,21 @@
                     <img id="dynamicImage1" src="h1.jpg" alt="Modern House" class="house-image">
                     <h3>Modern House For Sale</h3>
                     <p>Explore this beautiful modern house that could be your next home.</p>
-                    <a href="#" class="button">Visit Web</a>
+                    <a href="../index.html" class="button">Visit Web</a>
                 </div>
 
                 <div class="section">
                     <img id="dynamicImage2" src="h2.jpg" alt="New Blog About Housing" class="house-image">
                     <h3>New Blog About Housing</h3>
                     <p>Stay updated with the latest trends and insights in the housing market.</p>
-                    <a href="#" class="button">See Blog</a>
+                    <a href="./products-desc.html" class="button">See Blog</a>
+                </div>
+            </div>
+
+            <div class="news-container">
+                <h2>Latest News</h2>
+                <div id="news-list">
+                    <!-- News articles will be dynamically inserted here -->
                 </div>
             </div>
 
@@ -221,9 +256,9 @@
 
     <script>
         const images = [
-            ['h1.jpg', 'h2.jpg'], // Initial images
-            ['h3.jpg', 'h4.jpg'], // Second set of images
-            ['h5.jpg', 'h6.jpg']  // Third set of images
+            ['h1.jpg', 'h2.jpg'],
+            ['h3.jpg', 'h4.jpg'],
+            ['h5.jpg', 'h6.jpg']
         ];
 
         let currentIndex = 0;
@@ -236,7 +271,44 @@
             imgElement2.src = images[currentIndex][1];
         }
 
-        setInterval(changeImages, 2000); // Change images every 2 seconds
+        setInterval(changeImages, 2000);
+
+        async function fetchRealEstateNews() {
+            const url = 'https://newsdata.io/api/1/news?apikey=pub_5704974dff176062fad9d230a8b3219741d21&q=Realestate';
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    displayNews(data.results);
+                } else {
+                    console.error('Failed to fetch news:', data);
+                }
+            } catch (error) {
+                console.error('Error fetching news:', error);
+            }
+        }
+
+        function displayNews(articles) {
+            const newsList = document.getElementById('news-list');
+            newsList.innerHTML = '';
+
+            articles.forEach(article => {
+                const newsItem = document.createElement('div');
+                newsItem.className = 'news-item';
+
+                newsItem.innerHTML = `
+                    <h3>${article.title}</h3>
+                    <p>${article.description || 'No description available.'}</p>
+                    <a href="${article.link}" target="_blank">Read more</a>
+                `;
+
+                newsList.appendChild(newsItem);
+            });
+        }
+
+        window.onload = fetchRealEstateNews;
     </script>
 </body>
 
